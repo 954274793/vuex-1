@@ -1,8 +1,22 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Vuex from 'vuex'
 
-Vue.config.productionTip = false
+Vue.use( Vuex )
+
+const store = new Vuex.Store({
+  state:{ 
+    products: [
+      {name: '鼠标', price: 20},
+      {name: '键盘', price: 40},
+      {name: '耳机', price: 60},
+      {name: '显示屏', price: 80}
+    ]
+  }
+})
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  el: '#app',
+  store,
+  render: h => h(App)
+})
